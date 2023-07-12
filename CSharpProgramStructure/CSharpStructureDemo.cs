@@ -7,6 +7,7 @@ namespace Acme.Collections {
 
         public void Push(T data)
         {
+            Console.WriteLine("push data {0}", data);
             _top = new Entry(_top, data);
         }
 
@@ -18,30 +19,34 @@ namespace Acme.Collections {
             }
             T result = _top.Data;
             _top = _top.Next;
-
+            Console.WriteLine("pop data {0}", result);
             return result;
         }
 
         class Entry
         {
+
+            private Entry next;
+            private T data;
+
             public Entry Next { 
                 get
                 {
-                    return Next; 
+                    return next; 
                 }
                 set
                 {
-                    this.Next = Next;
+                    this.next = value;
                 }
             }
             public T Data { 
                 get
                 {
-                    return Data;
+                    return data;
                 }
                 set
                 {
-                    this.Data = Data;
+                    this.data = value;
                 }
             }
 
